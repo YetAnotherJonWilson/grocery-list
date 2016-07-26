@@ -33,8 +33,39 @@ router.get('/items', function(request, response){
   });
 });
 
+// route for updating items goes below, current version not working
+// router.put('/editbyitemname/:item/:newname', function(request, response){
+//
+//   var name = request.params.name;
+//   var newName = request.params.newname;
+//
+//   items.findById(request.params.name, function(err, newName){
+//     if(err){
+//       console.log(err);
+//       response.sendStatus(500);
+//     } else {
+//
+//       items.item = newName;
+//
+//       item.save(function(err){
+//         if(err){
+//           console.log('Error', err);
+//           response.sendStatus(500);
+//         } else {
+//           console.log('Saved');
+//           response.sendStatus(200);
+//         }
+//       });
+//
+//     }
+//   });
+// });
+
+//route for deleting items will go here
+
+
 router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../../public/views/index.html'));
-})
+});
 
 module.exports = router;

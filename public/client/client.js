@@ -23,6 +23,16 @@ angular.module('groceryList').controller("MainController", function($scope, $htt
       $http.post('item/newitem', sendData).then(fetchItems());
   }
 
+  // vm.updateItem = function(){
+  //   ...
+  //   $http.put('item/changeitembyname/:item/:newName').then(fetchItems());
+  // }
+
+  // vm.removeItem = function(){
+  //   ...
+  //   $http.delete('item/deleteitem/:item').then(fetchItems());
+  // }
+
   fetchItems();
 
 
