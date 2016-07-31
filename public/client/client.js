@@ -20,7 +20,7 @@ angular.module('groceryList').controller("MainController", function($scope, $htt
       sendData.listItem = vm.listItem;
       sendData.qty = vm.qty;
       console.log('Clicked');
-      $http.post('item/newitem', sendData).then(fetchItems());
+      $http.post('/item/newitem', sendData).then(fetchItems());
   }
 
   // vm.updateItem = function(){
@@ -28,10 +28,10 @@ angular.module('groceryList').controller("MainController", function($scope, $htt
   //   $http.put('item/changeitembyname/:item/:newName').then(fetchItems());
   // }
 
-  // vm.removeItem = function(){
-  //   ...
-  //   $http.delete('item/deleteitem/:item').then(fetchItems());
-  // }
+  vm.removeItem = function(item){
+    //console.log(item._id);
+    $http.delete('/item/deleteitem/' + item._id).then(fetchItems());
+  }
 
   fetchItems();
 

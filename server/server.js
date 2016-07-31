@@ -5,9 +5,12 @@ var index = require('./routes/index');
 
 var app = express();
 
+//"configs"
 app.use(bodyParser.json());
-app.use('/', index);
 app.use(express.static('public'));
+
+//routes
+app.use('/', index);
 
 
 var server = app.listen(3000, function() {

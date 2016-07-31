@@ -20,7 +20,7 @@
     <!-- Display Items -->
     <h4>Grocery List</h4>
        <ol>
-           <li ng-repeat="item in items">{{ item.item }}, {{item.qty}}</li>
+           <li ng-repeat="item in items">{{ item.item }}, {{item.qty}} <button class="btn-xs btn-warning" ng-click="main.removeItem(item)">Delete</button></li>
        </ol>
 
     <!-- Change an Item -->

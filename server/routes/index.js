@@ -4,7 +4,14 @@ var path = require('path');
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/grocery-list');
+// from now on put mongo connect in server
+var mongoURI = 'mongodb://localhost/grocery-list'
+var db = mongoose.connect(mongoURI).connection;
+
+db.once('open', function(){
+  'Mongo has started';
+});
+
 
 var grocerySchema = new Schema ({
   item: String,
@@ -62,7 +69,15 @@ router.get('/items', function(request, response){
 // });
 
 //route for deleting items will go here
-
+router.delete('/item/deleteitem/:_id', function(request, response){
+  console.log('id on server', request.params._id);
+  Item.findById(request.params._id, function(err, Item){
+    if (err) {
+      log('Could not remove item, error: ', err)
+    }
+    Item.remove();
+  })
+});
 
 router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../../public/views/index.html'));
