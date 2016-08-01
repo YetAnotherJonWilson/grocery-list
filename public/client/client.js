@@ -11,7 +11,7 @@ angular.module('groceryList').controller("MainController", function($scope, $htt
                throw new Error('Failed to fetch items');
            }
            $scope.items = response.data;
-           console.log(response.data);
+           //console.log(response.data);
        });
    };
 
@@ -23,10 +23,10 @@ angular.module('groceryList').controller("MainController", function($scope, $htt
       $http.post('/item/newitem', sendData).then(fetchItems());
   }
 
-  // vm.updateItem = function(){
-  //   ...
-  //   $http.put('item/changeitembyname/:item/:newName').then(fetchItems());
-  // }
+  vm.updateItem = function(item){
+    console.log(item.item, item.qty);
+   $http.put('item/update/' + vm._id + '/' + vm.item + '/' + vm.qty).then(fetchItems());
+  }
 
   vm.removeItem = function(item){
     //console.log(item._id);

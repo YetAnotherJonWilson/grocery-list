@@ -41,32 +41,11 @@ router.get('/items', function(request, response){
 });
 
 // route for updating items goes below, current version not working
-// router.put('/editbyitemname/:item/:newname', function(request, response){
-//
-//   var name = request.params.name;
-//   var newName = request.params.newname;
-//
-//   items.findById(request.params.name, function(err, newName){
-//     if(err){
-//       console.log(err);
-//       response.sendStatus(500);
-//     } else {
-//
-//       items.item = newName;
-//
-//       item.save(function(err){
-//         if(err){
-//           console.log('Error', err);
-//           response.sendStatus(500);
-//         } else {
-//           console.log('Saved');
-//           response.sendStatus(200);
-//         }
-//       });
-//
-//     }
-//   });
-// });
+router.put('/item/update/:_id/:item/:qty', function(request, response){
+  console.log(request.params._id);
+  console.log(request.params.item);
+  console.log(request.params.qty);
+});
 
 //route for deleting items will go here
 router.delete('/item/deleteitem/:_id', function(request, response){
