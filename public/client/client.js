@@ -25,7 +25,7 @@ angular.module('groceryList').controller("MainController", function($scope, $htt
 
   vm.updateItem = function(item){
     console.log(item.item, item.qty);
-   $http.put('item/update/' + vm._id + '/' + vm.item + '/' + vm.qty).then(fetchItems());
+   $http.put('item/update/' + item._id + '/' + item.item + '/' + item.qty).then(fetchItems());
   }
 
   vm.removeItem = function(item){

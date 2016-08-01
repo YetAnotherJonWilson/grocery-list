@@ -42,9 +42,9 @@ router.get('/items', function(request, response){
 
 // route for updating items goes below, current version not working
 router.put('/item/update/:_id/:item/:qty', function(request, response){
-  console.log(request.params._id);
-  console.log(request.params.item);
-  console.log(request.params.qty);
+  Item.findByIdAndUpdate(request.params._id, { item: request.params.item, qty: request.params.qty}, function(err){
+    console.log(err);
+  });
 });
 
 //route for deleting items will go here
